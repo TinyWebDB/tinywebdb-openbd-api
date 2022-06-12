@@ -18,7 +18,7 @@
 This web service is a proxy to Google's Books API and is to be used in conjunction with  <a
 href="http://appinventor.mit.edu">App Inventor
 for Android</a>. App Inventor apps can access this service using the TinyWebDB component and setting the ServiceURL to the URL of this site. The service returns a list of book data. You can explore how this API works by entering a tag of either search terms or an isbn in the form "isbn:xxxxxxxx" in the box below and clicking Get value.</p>
-<p><a href="https://github.com/edu2web/tinywebdb-openBD-api">read more...</a></p>
+<p><a href="https://github.com/TinyWebDB/tinywebdb-openbd-api">read more...</a></p>
 </td> </tr> 
 </table>
 

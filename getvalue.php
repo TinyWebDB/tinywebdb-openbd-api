@@ -20,4 +20,8 @@ function ItemSearch($SearchIndex, $Keywords){
 	}	
 
         echo json_encode(array("VALUE", $Keywords, $tagValue));
+
+	$log_message = sprintf("%s:%s\n", date('Y-m-d H:i:s'), "openDB API: ($apiKey) $Keywords -- $base_request");
+	$file_name   = 'openBD_' . date('Y-m-d') . '.log';
+	error_log($log_message, 3, $file_name);
 } 
