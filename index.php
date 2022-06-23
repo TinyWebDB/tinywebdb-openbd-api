@@ -33,4 +33,55 @@ for Android</a>. App Inventor apps can access this service using the TinyWebDB c
    
     Returned as value to TinyWebDB component: <br/>
    
+<?php
+
+$listLog = array();
+if ($handler = opendir("./")) {
+    while (($sub = readdir($handler)) !== FALSE) {
+        if (substr($sub, 0, 10) == "tinywebdb_") {
+            $listLog[] = $sub;
+        }
+    }
+    closedir($handler);
+}
+$listTxt = array();
+if ($handler = opendir("_data/")) {
+    while (($sub = readdir($handler)) !== FALSE) {
+        if (substr($sub, -4, 4) == ".txt") {
+            $listTxt[] = $sub;
+        }
+    }
+    closedir($handler);
+}
+
+echo "<h3>Recent Tags</h3>";
+echo "<table border=1>";
+echo "<thead><tr>";
+echo "<th> Tag </th>";
+echo "<th> ISBN  </th>";
+echo "<th> Title </th>";
+echo "<th> Author </th>";
+echo "<th> Cover </th>";
+echo "<th> Time </th>";
+echo "<th> Size </th>";
+echo "</tr></thead>\n";
+if ($listTxt) {
+    sort($listTxt);
+    foreach ($listTxt as $sub) {
+        echo "<tr>";
+        echo "<td><a href=getvalue?tag=" . substr($sub, 0, -4) . ">" .substr($sub, 0, -4) . "</a></td>\n";
+	$lines = file("_data/" . $sub);
+	$tagValue = json_decode($lines[0], true);
+	//  print_r($tagValue);
+        echo "<td>" . $tagValue['isbn'] . "</td>\n";
+        echo "<td>" . $tagValue['title'] . "</td>\n";
+        echo "<td>" . $tagValue['author'] . "</td>\n";
+        echo "<td><img width=100 src=" . $tagValue['cover'] . "></td>\n";
+        echo "<td>" . date('Y-m-d H:i:s',filemtime("_data/" . $sub)) . "</td>\n";
+        echo "<td>" . filesize("_data/" . $sub) . "</td>\n";
+        echo "</tr>";
+    }
+}
+echo "</table>";
+?>
 </body></html>
