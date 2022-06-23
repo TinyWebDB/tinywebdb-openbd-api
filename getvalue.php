@@ -23,7 +23,7 @@ function ItemSearch($SearchIndex, $Keywords){
 
         echo json_encode(array("VALUE", $tagName, $tagValue));
 
-	$fh = fopen("_data/" . $tagName . ".txt", "w") or die("check file write permission.");
+	$fh = fopen("_data/" . $item->summary->isbn . ".txt", "w") or die("check file write permission.");
         fwrite($fh, json_encode($tagValue));
         fclose($fh);
 
