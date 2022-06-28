@@ -15,9 +15,12 @@
 <td><image src="/images/customLogo.gif" width="200" hspace="10"></td>
 <td>
 <p>
-This web service is a proxy to openBD API and is to be used in conjunction with  <a
-href="http://appinventor.mit.edu">App Inventor
-for Android</a>. App Inventor apps can access this service using the TinyWebDB component and setting the ServiceURL to the URL of this site. The service returns a list of book data. You can explore how this API works by entering a tag of either search terms or an isbn in the form "isbn:xxxxxxxx" in the box below and clicking Get value.</p>
+This web service is a proxy to openBD API and is to be used in conjunction with  
+	<a　href="http://appinventor.mit.edu">App Inventor　for Android</a>. 
+	App Inventor apps can access this service using the TinyWebDB component and setting the ServiceURL to the URL of this site. 
+	The service returns a book data.  
+	You can explore how this API works by entering a tag of an isbn in the form "xxxxxxxx" in the box below and clicking Get value.
+</p>
 <p><a href="https://github.com/TinyWebDB/tinywebdb-openbd-api">read more...</a></p>
 </td> </tr> 
 </table>
